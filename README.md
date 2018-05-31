@@ -42,9 +42,9 @@ This project is run in a virutal machine created using Vagrant:
 ### Python file                                                                                               
 Here i am create four views i.e populararticles,error,total,final.                                                         
 article = '''create or replace view populararticles as select title,count(title) as views from articles, log where articles.slug =replace(log.path,'/article/','')group by title order by views desc limit 3'''                                
-log1 = '''create select count(status) as es,date(time) as et                                                               
+log1 = '''create view error as select count(status) as es,date(time) as et                                                               
           from log where status!='200 OK' group by date(time) order by es'''                                               
-log2 = '''create select count(status) as cs,date(time)                                                           
+log2 = '''create view total as select count(status) as cs,date(time)                                                           
           as ct from log group by date(time) order by cs'''                                                  
 log = '''create view final as select  et,((100.00*es)/cs) as percent from error                                          
          natural join total where total.ct=error.et group by et,percent order                                  
