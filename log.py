@@ -44,7 +44,7 @@ try:
     c = cur.fetchall()
     print("On which days did more than 1% of requests lead to errors:")
     for z in c:
-        print z[0], " has ",round(z[1], 1), "%", " errors"
+        print z[0], " has ", round(z[1], 1), "%", " errors"
 except Exception as e:
     print(e)
 cur.close()
