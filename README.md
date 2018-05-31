@@ -6,7 +6,7 @@
 ### Software required:                                                                                                  
 This project is run in a virutal machine created using Vagrant:                                                            
 ### Process for installation:                                                                   
-**i)Install Vagrant **                                                                                  
+**i)Install Vagrant**                                                                                  
     sudo apt-get install vagrant                                                                                       
 **ii)Install VirtualBox**                                                                                                    
     sudo apt-get install virtualbox                                                                                  
