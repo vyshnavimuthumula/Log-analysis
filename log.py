@@ -38,6 +38,8 @@ log2 = '''create select count(status) as cs,date(time)
 log = '''create view final as select  et,((100.00*es)/cs) as percent from error
          natural join total where total.ct=error.et group by et,percent order
          by percent'''
+'''es = error status, et = date at 404 error,
+cs = current status, ct = current date'''
 output = "select * from final  where percent>1"
 try:
     cur.execute(output)
