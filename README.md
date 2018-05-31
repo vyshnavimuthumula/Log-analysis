@@ -19,7 +19,7 @@ iv)Postgresql installation
     sudo apt-get install postgresql postgresql-contrib                                                               
  v)Psycopg2 installation                                                                                              
     sudo apt-get install python-psycopg2                                                                  
- vi)create news database as user vagrant                                                                           
+ **vi)create news database as user vagrant**                                                                           
     go to folder and open terminal type                                                                               
     sudo -i -u postgres                                                                                            
     psql                                                                                                            
