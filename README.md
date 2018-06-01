@@ -88,5 +88,5 @@ order by percent desc
 '''                                                                                                                         
  ### How to run:                                                                                                
   After writing python file open terminal and type same directory where all the data is present then type                               
-         python log.py                                                            
+         python log.py                                                                                                                  
   Finally output will displays.
