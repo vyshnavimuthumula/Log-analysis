@@ -66,14 +66,14 @@ create view error
 as select count(status) as es,date(time) as et                                                                                      
 from log where status!='200 OK'                                                                                         
 group by date(time)                                                                                                         
-order by es desc                                                                                                                        
+order by es desc;                                                                                                                       
 '''                                                                                                                                    
 log2 =                                                                              
 '''                                                 
 create view total                                                                                                               
 as select count(status) as cs,date(time) as ct                                                                                  
 from log group by date(time)                                                                            
-order by cs desc                                                                                                                    
+order by cs desc;                                                                                                                    
 '''                                                                                 
 log =                                                                                                                               
 '''                                                                                                             
@@ -84,7 +84,7 @@ from error
 natural join total                                                                                                                  
 where total.ct=error.et                                                                                                         
 group by et, percent                                                                                                            
-order by percent desc                                                                                                                   
+order by percent desc;                                                                                                                   
 '''                                                                                                                         
  ### How to run:                                                                                                
   After writing python file open terminal and type same directory where all the data is present then type                               
