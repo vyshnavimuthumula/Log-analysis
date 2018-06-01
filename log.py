@@ -21,7 +21,7 @@ except Exception as e:
 author = '''select authors.name, count(*) as num from authors join articles
             on authors.id = articles.author join log on articles.slug like
             replace(log.path,'/article/','') group by authors.name order by num
-            limit 4'''
+            desc limit 4'''
 try:
     cur.execute(author)
     b = cur.fetchall()
@@ -32,12 +32,12 @@ except Exception as e:
     print(e)
 # Percentage of errors per day
 log1 = '''create view error as select count(status) as es,date(time) as et
-          from log where status!='200 OK' group by date(time) order by es'''
+          from log where status!='200 OK' group by date(time) order by es desc'''
 log2 = '''create view total as select count(status) as cs,date(time)
-          as ct from log group by date(time) order by cs'''
+          as ct from log group by date(time) order by cs desc'''
 log = '''create view final as select  et,((100.00*es)/cs) as percent from error
          natural join total where total.ct=error.et group by et,percent order
-         by percent'''
+         by percent desc'''
 '''es = error status, et = date at 404 error,
 cs = current status, ct = current date'''
 output = "select * from final  where percent>1"
@@ -46,7 +46,7 @@ try:
     c = cur.fetchall()
     print("On which days did more than 1% of requests lead to errors:")
     for z in c:
-        print z[0], " has ", round(z[1], 1), "%", " errors"
+        print z[0].strftime('%B %d, %Y'), " has", round(z[1], 1),"%", "errors"
 except Exception as e:
     print(e)
 cur.close()
