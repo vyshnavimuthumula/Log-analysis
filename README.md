@@ -51,7 +51,7 @@ Type each view query to create them (ensure each query ends with ;)
 Exit the database with \q                                                                                                           
 Run the command python log.py.                                                                                                          
 article =                                                                                                   
-'''sql                                                                                                          
+'''                                                                                                       
 create or replace view populararticles                                                                                                  
 as select title,count(title) as views                                                                                                   
 from articles, log                                                                                                                      
